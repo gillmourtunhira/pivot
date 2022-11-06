@@ -1,0 +1,22 @@
+{
+  "name": "pivot",
+  "version": "1.0.0",
+  "description": "Custom theme for AOM Beta",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gillmourtunhira/pivot.git"
+  },
+  "keywords": [
+    "aom"
+  ],
+  "author": "Gillmour Tunhira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gillmourtunhira/pivot/issues"
+  },
+  "homepage": "https://github.com/gillmourtunhira/pivot#readme"
+}
