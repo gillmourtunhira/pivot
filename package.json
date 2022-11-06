@@ -18,5 +18,20 @@
   "bugs": {
     "url": "https://github.com/gillmourtunhira/pivot/issues"
   },
-  "homepage": "https://github.com/gillmourtunhira/pivot#readme"
+  "homepage": "https://github.com/gillmourtunhira/pivot#readme",
+  "devDependencies": {
+    "bootstrap-icons": "^1.9.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.56.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "jquery": "^3.6.1",
+    "slick-carousel": "^1.8.1"
+  }
 }
