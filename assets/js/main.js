@@ -1,7 +1,8 @@
-const bootstrap = require('bootstrap');
-const slicker = require('slicker-carousel');
-const $ = require ('jquery');
+jQuery.noConflict();
+jQuery( document ).ready(function( $ ) {
 
 $(function(){
 	console.log('We are in!');
+});
+
 });
