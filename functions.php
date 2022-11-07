@@ -28,7 +28,7 @@ function pivot_menu_setup(){
 	register_nav_menus( [
 	'primary'	=>	__( 'Top Navigation' ),
 	'footer'	=>	__( 'Footer Navigation' ),
-    'terms'     =>  __( 'Copyright Navigation' ),
+    'terms'     =>  __( 'Bottom Navigation' ),
 	]);
 }
 add_action( 'init', 'pivot_menu_setup' );
