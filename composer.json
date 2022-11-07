@@ -1,0 +1,20 @@
+{
+	"name"	:	"gillmourtunhira/pivot",
+	"description": "My Bespoke theme for Projects",
+	"keywords": [
+		"wordpress",
+		"theme"
+	],
+	"homepage" : "https://github.com/gillmourtunhira/pivot",
+	"authors" : [
+		{
+			"name": "Gillmour Tunhira",
+		      "email": "me@gillmourtunhira.com",
+		      "homepage": "https://gillmourtunhira.com"
+		}
+	],
+	"type": "wordpress-theme",
+	"require": {
+		"php": ">5.6"
+	}
+}
