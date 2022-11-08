@@ -8,6 +8,7 @@ Pivot is a gulp-based generated assets [Wordpress](https://#!) theme, for [Web-A
 go to your wp-themes/themes folder and clone there
 ```
 git clone git@github.com:gillmourtunhira/pivot.git
+rm -rf .git/
 ```
 ### NPM Install Dependencies
 ```
