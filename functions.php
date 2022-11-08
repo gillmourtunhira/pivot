@@ -111,7 +111,7 @@ function pivot_remove_support(){
 add_action( 'init', 'pivot_remove_support' );
 
 // Removing plugin controls from admin
-function remove_plugin_controls($actions, $plugin_file, $plugin_data, $content){
+function remove_plugin_controls($actions, $plugin_file, $plugin_data, $context){
 
     if( array_key_exists('edit', $actions) ){
         unset($actions['edit']);
@@ -155,3 +155,5 @@ function disable_bulk_actions($actions){
 
 }
 add_filter('bulk_actions-plugins', 'disable_bulk_actions');
+
+define('DISALLOW_FILE_MODS', true);
