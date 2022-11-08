@@ -117,14 +117,6 @@ function remove_plugin_controls($actions, $plugin_file, $plugin_data, $context){
         unset($actions['edit']);
     }
 
-    if( array_key_exists('deactivate', $actions) ){
-        unset($actions['deactivate']);
-    }
-
-    if( array_key_exists('activate',$actions) ){
-        unset($actions['activate']);
-    }
-
     if( array_key_exists('delete',$actions) ){
         unset($actions['delete']);
     }
@@ -155,5 +147,3 @@ function disable_bulk_actions($actions){
 
 }
 add_filter('bulk_actions-plugins', 'disable_bulk_actions');
-
-define('DISALLOW_FILE_MODS', true);
