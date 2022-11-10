@@ -1,0 +1,42 @@
+$heading-font: 'IBM Plex Sans', sans-serif;
+$second-font: 'Quicksand', sans-serif;
+
+h1{
+	font-size: 34px;
+	font-weight: 700;
+	font-family: $second-font;
+}
+p{
+	font-size: 16px;
+	font-weight: 400;
+	font-family: $second-font;
+}
+
+header{
+	.header_logo {
+		width: 100%;
+		max-width: 175px;
+	}
+	.nav-link{
+		color: #000;
+		font-weight: 600;
+		font-size: 17px;
+	}
+}
+.cta{
+	&-cover{
+		background-repeat: no-repeat;
+		background-position: 0% 50%;
+		height: 100%;
+		min-height: 50vh;
+	}
+	&-heading{
+		&--top{
+			&_title{
+				width: 75%;
+				letter-spacing: -4px;
+				line-height: .9;
+			}
+		}
+	}
+}

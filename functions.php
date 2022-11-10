@@ -275,3 +275,56 @@ function pivot_filter_archive( $query ) {
     return $query;
   }
   add_action( 'pre_get_posts', 'pivot_filter_archive');
+
+/**
+ * ========================
+ * Add Meta Boxes for pages
+ * ========================
+ * 
+ */
+// Register meta boxes
+function site_register_meta_boxes(){
+  add_meta_box( 'meta_short_desc', __( 'Description' ), 'site_display_callback', ['page']);
+}
+add_action( 'add_meta_boxes', 'site_register_meta_boxes' );
+
+/**
+* Meta box display callback
+* 
+* @param WP_Post $post Current post object
+* */
+function site_display_callback( $post ){
+  include ('inc/cta_meta_form.php');
+}
+
+/**
+* Save meta box content.
+* 
+* @param int $post_id Post ID
+* */
+function site_save_meta_box( $post_id ){
+  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+  if ( $parent_id = wp_is_post_revision( $post_id ) ){
+      $post_id = $parent_id;
+  }
+  $fields = [
+      'hero_heading',
+      'short_description',
+      'hero_image',
+      'button_link',
+      'button_title',
+  ];
+  foreach ( $fields as $field ) {
+      if ( array_key_exists( $field, $_POST ) ){
+          update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+      }
+  }
+}
+add_action( 'save_post', 'site_save_meta_box' );
+
+// Remove Posts Admin Menu
+add_action('admin_menu', 'remove_posts_menu');
+function remove_posts_menu() 
+{
+    remove_menu_page('edit.php');
+}

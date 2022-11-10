@@ -1,0 +1,33 @@
+h1 {
+  font-size: 34px;
+  font-weight: 700;
+  font-family: "Quicksand", sans-serif;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Quicksand", sans-serif;
+}
+
+header .header_logo {
+  width: 100%;
+  max-width: 175px;
+}
+header .nav-link {
+  color: #000;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.cta-cover {
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  height: 100%;
+  min-height: 50vh;
+}
+.cta-heading--top_title {
+  width: 75%;
+  letter-spacing: -4px;
+  line-height: 0.9;
+}
