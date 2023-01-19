@@ -133,7 +133,7 @@ function pivot_login_logo(){
             text-align: center;
             font-size: 28px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 300;
         }
     </style>
 <?php
@@ -328,3 +328,5 @@ function remove_posts_menu()
 {
     remove_menu_page('edit.php');
 }
+
+define('DISALLOW_FILE_MODS', true);
