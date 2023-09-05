@@ -10,9 +10,16 @@ go to your wp-themes/themes folder and clone there
 git clone git@github.com:gillmourtunhira/pivot.git
 rm -rf .git/
 ```
-### NPM Install Dependencies
+### Install Dependencies
 ```
-npm install
+### Composer
+Move composer.json file from pivot/composer folder to public/ folder
+
+1. run composer install
+-- to install plugins
+
+2. cd into pivot theme
+-- run npm install
 ```
 ### Watch assets by [Gulp](https://#!)
 ```
