@@ -1,7 +1,16 @@
 @import 'variables';
 
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 @import "node_modules/bootstrap/scss/functions";
+// @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+// @import 'slick-carousel/slick/slick.css';
+// @import "bootstrap/dist/css/bootstrap.min.css";
+:root{
+	--secondary-font: 'DM Sans', sans-serif;
+	--heading-font: 'Bricolage Grotesque', sans-serif;
+}
+
 
 *,html{
 	padding: 0;
@@ -12,7 +21,22 @@
 body{
 	background: #fff;
 	scroll-behavior: smooth;
-	font-family: $font-family-sans-serif;
+	overflow-x: hidden;
+
+	&.home{
+		.cta-cover{
+			min-height: 60vh;
+			display: flex;
+			align-items: center;
+			background-position: 50% 50%;
+		}
+	}
+
+	p{
+		font-size: $font-size-sm;
+    font-weight: 300;
+    line-height: 24px;
+	}
 }
 .row-flush{
 	margin-left: -15px;
@@ -21,6 +45,64 @@ body{
 .col-flush{
 	margin-right: 0;
 	margin-left: 0;
+}
+
+// Buttons
+
+.btn{
+	border-radius: 10px;
+	padding: 10px 40px;
+  font-size: 1.2rem;
+  font-weight: 500;
+	max-height: 50px;
+
+	&-primary{
+		color: #fff;
+	}
+	&-green{
+		color: #fff;
+	}
+}
+
+.partners{
+	.slick-track{
+		display: flex;
+		align-items: center;
+		.slick-slide{
+			.logo{
+				img{
+					width: 100%;
+			    max-width: 150px;
+			    height: auto;
+			    object-fit: cover;
+				}
+			}
+		}
+	}
+}
+
+.heading-title{
+	font-family: var(--heading-font);
+	letter-spacing: -2px;
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+.arrow-link{
+	text-decoration: none;
+}
+
+.search-form{
+	input[type=search]{
+		padding: 5px 10px;
+	}
+}
+
+// Menus
+.bottom-menu{
+	&-item{
+		width: 50%
+	}
 }
 
 @import 'sections';

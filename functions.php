@@ -5,6 +5,8 @@ require( 'inc/navwalker.php' );
 require( 'inc/post_types.php' );
 require( 'inc/taxonomies.php' );
 require( 'inc/widgets.php' );
+require( 'inc/shortcodes.php' );
+require( 'inc/customizer.php' );
 
 
 /**
@@ -12,12 +14,16 @@ require( 'inc/widgets.php' );
  * */
 function pivot_theme_scripts(){
     // CSS
-    wp_enqueue_style( 'quick-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap' );
-    wp_enqueue_style( 'ibm-font', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&display=swap' );
-    wp_enqueue_style( 'fonts-pivot', get_template_directory_uri() . '/dist/css/main.css', ['quick-font','ibm-font'], time() );
+    // wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap', [], null, 'all' );
+    wp_enqueue_style( 'g-font', 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900;9..40,1000&display=swap', [], null, 'all' );
+    wp_enqueue_style( 'slick-css', get_template_directory_uri() . '/assets/slick/slick.css', [], null, 'all' );
+    wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/slick/slick-theme.css', [], null, 'all' );
+    wp_enqueue_style( 'fonts-pivot', get_template_directory_uri() . '/dist/css/main.css', ['g-font','slick-css','slick-theme'], time() );
 
     // JS
-    wp_enqueue_script('js-pivot', get_template_directory_uri() . '/dist/js/main.min.js', array('jquery'), time(), false);
+    wp_enqueue_script('boostrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js');
+    wp_enqueue_script( 'slick-js', get_template_directory_uri() . '/assets/slick/slick.js', ['jquery'], null, 'all' );
+    wp_enqueue_script('js-pivot', get_template_directory_uri() . '/dist/js/main.min.js', ['jquery','boostrap-js','slick-js'], time(), false);
 }
 add_action( 'wp_enqueue_scripts','pivot_theme_scripts' );
 
@@ -29,7 +35,8 @@ add_action( 'wp_enqueue_scripts','pivot_theme_scripts' );
 function pivot_menu_setup(){
     add_theme_support( 'menus' );
     register_nav_menus( [
-    'primary'   =>  __( 'Top Navigation' ),
+    'primary'   =>  __( 'Main Menu' ),
+    'top_nav'   =>  __( 'Top Navigation' ),
     'footer'    =>  __( 'Footer Navigation' ),
     'terms'     =>  __( 'Bottom Navigation' ),
     ]);
@@ -150,7 +157,7 @@ add_filter( 'login_message', 'pivot_login_label' );
 
 // Remove Editor on Pages
 function pivot_remove_support(){
-    // remove_post_type_support('page', 'editor');
+    remove_post_type_support('page', 'editor');
 }
 add_action( 'init', 'pivot_remove_support' );
 
@@ -229,7 +236,7 @@ function pivot_add_additional_class_on_a( $classes, $item, $args ){
     return $classes;
   }
   add_filter('nav_menu_link_attributes', 'pivot_add_additional_class_on_a', 1,3);
-  
+
   // Add an achor class to primary menu items
   function pivot_add_primay_menu_a_class( $classes, $item, $args ){
     if( isset( $args->primary_a_link ) ){
@@ -238,7 +245,7 @@ function pivot_add_additional_class_on_a( $classes, $item, $args ){
     return $classes;
   }
   add_filter('nav_menu_link_attributes', 'pivot_add_primay_menu_a_class', 1,3);
-  
+
   // Add a list class to menu
   function pivot_add_additional_class_on_li($classes, $item, $args) {
     if(isset($args->add_li_class)) {
@@ -280,7 +287,7 @@ function pivot_filter_archive( $query ) {
  * ========================
  * Add Meta Boxes for pages
  * ========================
- * 
+ *
  */
 // Register meta boxes
 function site_register_meta_boxes(){
@@ -290,7 +297,7 @@ add_action( 'add_meta_boxes', 'site_register_meta_boxes' );
 
 /**
 * Meta box display callback
-* 
+*
 * @param WP_Post $post Current post object
 * */
 function site_display_callback( $post ){
@@ -299,7 +306,7 @@ function site_display_callback( $post ){
 
 /**
 * Save meta box content.
-* 
+*
 * @param int $post_id Post ID
 * */
 function site_save_meta_box( $post_id ){
@@ -324,9 +331,24 @@ add_action( 'save_post', 'site_save_meta_box' );
 
 // Remove Posts Admin Menu
 add_action('admin_menu', 'remove_posts_menu');
-function remove_posts_menu() 
+function remove_posts_menu()
 {
     remove_menu_page('edit.php');
 }
 
 define('DISALLOW_FILE_MODS', true);
+
+
+// add_filter( 'the_content', 'content_loop', 1 );
+// function content_loop( $content ) {
+//
+//     // Check if we're inside the main loop in a single Post.
+//     if ( is_singular() && in_the_loop() && is_main_query() ) {
+//
+//       if( $content_block = get_field('content_block') ) {
+//         $content = $content_block;
+//       }
+//     }
+//
+//     return $content;
+// }

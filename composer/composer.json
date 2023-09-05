@@ -1,0 +1,45 @@
+{
+    "name": "gillmourtunhira/pivot-custom",
+    "description": "Custom Theme for every use",
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "require": {
+    	"php": ">=7.4",
+        "wpackagist-plugin/classic-editor":"^1.6.2",
+        "wpackagist-plugin/contact-form-7":"^5.7.2",
+        "wpackagist-plugin/advanced-custom-fields":"^6.0.7",
+        "wpackagist-plugin/duracelltomi-google-tag-manager":"^1.18",
+        "wpackagist-plugin/wordfence":"^7.10",
+        "wpackagist-plugin/wp-fastest-cache":"^1.1",
+        "wpackagist-plugin/wordpress-seo":"^21.1",
+        "wpackagist-plugin/wp-smushit":"^3.14"
+    },
+    "autoload": {
+        "psr-0": {
+            "Acme": "src/"
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
