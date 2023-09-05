@@ -12,7 +12,7 @@ rm -rf .git/
 ```
 ### Install Dependencies
 ```
-#### Composer
+### Composer
 Move composer.json file pivot/composer folder to public/ folder
 
 1. run composer install
