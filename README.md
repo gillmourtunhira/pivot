@@ -13,7 +13,7 @@ rm -rf .git/
 ### Install Dependencies
 ```
 ### Composer
-Move composer.json file pivot/composer folder to public/ folder
+Move composer.json file from pivot/composer folder to public/ folder
 
 1. run composer install
 -- to install plugins
